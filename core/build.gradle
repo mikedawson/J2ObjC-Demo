@@ -1,0 +1,13 @@
+apply plugin: 'java-library'
+
+jar {
+    exclude("ae/theassembly/j2objc/impl/*Factory.class")
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.json:json:20160212"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
