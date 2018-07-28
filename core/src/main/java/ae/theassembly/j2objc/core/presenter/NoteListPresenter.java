@@ -43,9 +43,13 @@ public class NoteListPresenter {
 
         List<String> summaries = new ArrayList<>();
         for(int i = 0; i < notesArr.length(); i++) {
-            String noteVal = notesArr.getString(i);
-            noteVal = noteVal.length() > SUMMARY_LENGTH ? noteVal.substring(0, 20) : noteVal;
-            summaries.add(noteVal);
+            try {
+                String noteVal = notesArr.getString(i);
+                noteVal = noteVal.length() > SUMMARY_LENGTH ? noteVal.substring(0, 20) : noteVal;
+                summaries.add(noteVal);
+            }catch(JSONException e) {
+                e.printStackTrace();
+            }
         }
 
         view.setNoteList(summaries);
